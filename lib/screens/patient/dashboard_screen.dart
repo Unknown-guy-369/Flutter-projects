@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulsecare_app/widgets/category_list.dart';
 
 class PatientDashboard extends StatefulWidget {
   const PatientDashboard({super.key});
@@ -48,24 +49,34 @@ class _PatientDashboardState extends State<PatientDashboard> {
               ),
             ),
             Expanded(
-              child: Container(
-                
-                // width: double.infinity,
-              
+              child: Container(              
                 decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(40),
                         topLeft: Radius.circular(40))),
-                  child: const Column(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-              
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 40,left: 20,right: 20),
+                        child: Container(
+                          height: 130,
+                          
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: const[
+                              CategoryList(cardColor: Color.fromARGB(255, 17, 223, 255),cardName: "Book Appoinment",),
+                              CategoryList(cardColor: Color.fromARGB(255, 239, 166, 8),cardName: "Emergency Booking",),
+                              CategoryList(cardColor: Color.fromARGB(255, 255, 0, 140),cardName: "Doctor Availability",),
+                              CategoryList(cardColor: Color.fromARGB(255, 29, 158, 222),cardName: "First Aid Guide",),
+                              CategoryList(cardColor: Color.fromARGB(255, 78, 217, 13),cardName: "Water remainder",),
+                            ],
+                          ),
+                        ),
                       )
                     ],
-                  ),
+                  )
               ),
             )
           ],
