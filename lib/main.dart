@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:pulsecare_app/screens/home.dart';
+// import 'package:pulsecare_app/screens/home.dart';
+import 'package:pulsecare_app/screens/patient/dashboard_screen.dart';
 void main(){
   runApp(const MyApp());
 }
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: PulseCare(),
+      debugShowCheckedModeBanner: false,
+      home: PatientDashboard(),
     );
   }
 }
