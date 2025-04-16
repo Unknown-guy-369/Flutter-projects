@@ -53,26 +53,34 @@ class _DoctorAppoinmentBookingState extends State<DoctorAppoinmentBooking> {
           padding: const EdgeInsets.all(15.0),
           child: ListView(
             children: [
-              const SizedBox(height: 30,),
-
-            
+              Padding(
+                padding: const EdgeInsets.only(left: 10, top: 5),
+                child: const Text(
+                  "Doctor Appoinment Booking",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               DropdownButtonFormField(
                 decoration: const InputDecoration(
                   labelText: 'Select Doctor',
                   border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10), 
-                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                ),
                 value: _selectedDoctor,
                 items: doctors
-                    .map((doc) => DropdownMenuItem(value: doc, child: Text(doc)))
+                    .map(
+                        (doc) => DropdownMenuItem(value: doc, child: Text(doc)))
                     .toList(),
                 onChanged: (value) => setState(() {
                   _selectedDoctor = value;
                 }),
               ),
-
-
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               ListTile(
                 title: Text(_selectedDate == null
                     ? "Select Date"
@@ -88,9 +96,9 @@ class _DoctorAppoinmentBookingState extends State<DoctorAppoinmentBooking> {
                   if (picked != null) setState(() => _selectedDate = picked);
                 },
               ),
-
-
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               DropdownButtonFormField(
                 decoration: const InputDecoration(labelText: 'Select Time'),
                 value: _selectedTime,
@@ -102,36 +110,42 @@ class _DoctorAppoinmentBookingState extends State<DoctorAppoinmentBooking> {
                   _selectedTime = value;
                 }),
               ),
-
-
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Reason for Visit',),
+                decoration: const InputDecoration(
+                  labelText: 'Reason for Visit',
+                ),
                 onChanged: (value) => setState(() {
                   _reason = value;
                 }),
               ),
-
-
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               SwitchListTile(
                 title: const Text("Emergency Booking"),
                 value: _isEmergency,
                 onChanged: (val) => setState(() => _isEmergency = val),
               ),
               const SizedBox(height: 10),
-
-
-              ElevatedButton(onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Handle the booking logic here
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Booking Confirmed')),
-                  );
-                }
-              }, child: const Text("Book Appointment")),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Handle the booking logic here
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Booking Confirmed')),
+                    );
+                  }
+                },
+                child: const Text("Book Appointment"),
+                style:const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(
+                        Color.fromARGB(255, 255, 255, 255))),
+              )
             ],
           ),
         ));
   }
-} 
+}
